@@ -17,10 +17,17 @@ air4 = Airplane.create airplane_id: "777-VZ", airline_company: 'Qantas', row: 55
 
 puts "Created #{ Airplane.all.length } airplanes."
 
-# Will finish flight seed file once reservation_id is available.
+Flight.destroy_all
+f1 = Flight.create date: "2010-10-10 08:30:30", origin: "Sydney", destination: "Perth"
+f2 = Flight.create date: "2010-05-06 11:20:10", origin: "Sydney", destination: "Melbourne"
+f3 = Flight.create date: "2010-10-12 02:00:25", origin: "Melbourne", destination: "Auckland"
+f4 = Flight.create date: "2011-01-03 18:51:20", origin: "Auckland", destination: "Sydney"
+f5 = Flight.create date: "2010-12-12 08:30:30", origin: "Sydney", destination: "Perth"
 
-# Flight.destroy_all
-# f1 = Flight.create airplane_id: "747-NE", reservation_id: SOMENUMBER, datetime: "2010-10-10 08:30:30", origin: "Sydney", destination: "Perth"
-# f2 = Flight.create airplane_id: "777-VU", reservation_id: SOMENUMBER, datetime: "2010-05-06 11:20:10", origin: "Sydney", destination: "Melbourne"
-# f3 = Flight.create airplane_id: "747-NQ", reservation_id: SOMENUMBER, datetime: "2010-10-12 02:00:25", origin: "Melbourne", destination: "Auckland"
-# f4 = Flight.create airplane_id: "777-VZ", reservation_id: SOMENUMBER, datetime: "2011-01-03 18:51:20", origin: "Auckland", destination: "Sydney"
+air1.flights << f1 << f5
+air2.flights << f2
+air3.flights << f3
+air4.flights << f4
+
+
+puts "Created #{ Flight.all.length } flights."
