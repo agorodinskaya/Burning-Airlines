@@ -1,0 +1,10 @@
+<h1>Index of airplanes</h1>
+<div>
+    <ul>
+        <% @airplanes.each do |airplane| %>
+        <li>
+            <%= airplane.airline_company %>: <%= airplane.plane_id %>
+        </li>
+        <% end %>
+    </ul>
+</div>
