@@ -1,2 +1,22 @@
-<h1>Airplanes#show</h1>
-<p>Find me in app/views/airplanes/show.html.erb</p>
+<h1>Information about <%= @airplane.airplane_name %><h1>
+<br/>
+<ul>
+    <li>Belongs to <%= @airplane.airline_company %><li>
+    <br/>
+    <li>Has <%= @airplane.row %>rows<li>
+    <br/>
+    <li>and <%= @airplane.column %>columns<li>
+    <br/>
+</ul>
+<h3>Associated flight information</h3>
+<ul>
+    <% array_of_flights.each do |flight| %>
+    <li>Origin: <%= flight.origin %></li>
+    <br/>
+    <li>Destination: <%= flight.destination %></li>
+    <br/>
+    <li>Date: <%= flight.datetime %></li>
+    <br/>
+    <li><%= link_to 'Flight information', flight_path %></li>
+    <br/>    
+</ul>

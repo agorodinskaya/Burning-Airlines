@@ -1,0 +1,15 @@
+<%= form_for @flight do |a| %>
+    <%= a.label :airplane_name %>
+    <%= a.string :airplane_name %>
+    <br/>
+    <%= a.label :date %>
+    <%= a.datetime :date %>
+    <br/>
+    <%= a.label :origin %>
+    <%= a.string :origin %>
+    <br/>
+    <%= a.label :destination %>
+    <%= a.string :destination %>
+    <br/>
+    <%= a.submit %>
+<% end %>
