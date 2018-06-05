@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  get 'pages/new'
+  root to: "pages#home"
   get "/airplanes" => "airplanes#index"
 
   get "/login" => "session#new"

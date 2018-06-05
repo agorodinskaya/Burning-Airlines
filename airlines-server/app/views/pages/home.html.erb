@@ -1,0 +1,12 @@
+
+<
+<h2>News</h2>
+<ul>
+<% @results_news %>
+<% @results_news["articles"].each do |a| %>
+  <li>
+  <%= a["title"] %>||
+  <a href= "<%= a["url"]%>">Please follow the link to read the article</a>
+  </li>
+<% end %>
+</ul>
