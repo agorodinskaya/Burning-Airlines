@@ -1,2 +1,0 @@
-
-BURN BURN BURN
