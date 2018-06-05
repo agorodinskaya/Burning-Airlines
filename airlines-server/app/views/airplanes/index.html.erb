@@ -3,6 +3,7 @@
     <ul>
         <% @airplanes.each do |airplane| %>
         <li>
+<<<<<<< HEAD
             <%= airplane.airline_company %>: <%= airplane.airplane_name %>
             <br/>
             <%= link_to 'View plane information', airplane_path( airplane ) %>
@@ -16,3 +17,13 @@
     <%= link_to 'Add a new plane', new_airplane_path %>
 
 </div>
+=======
+
+            <%= airplane.airline_company %>: <%= airplane.airplane_id %>
+            
+
+        </li>
+        <% end %>
+    </ul>
+</div>
+>>>>>>> 901bbb275907fae29b85cbfa086c0ab441a9e685
