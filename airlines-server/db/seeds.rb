@@ -1,7 +1,8 @@
 
 User.destroy_all
 u1 = User.create email: 'Bob@ga.com', username: 'Bob', password: 'chicken', password_confirmation: 'chicken', user_type: :client
-u2 = User.create email: 'Alison@ga.com', username: 'Alison', password: 'chicken', password_confirmation: 'chicken', user_type: :admin
+u2 = User.create email: 'Chuck@ga.com', username: 'Chuck', password: 'chicken', password_confirmation: 'chicken', user_type: :client
+u3 = User.create email: 'Alison@ga.com', username: 'Alison', password: 'chicken', password_confirmation: 'chicken', user_type: :admin
 
 puts "Created #{ User.all.length} users."
 
@@ -31,3 +32,22 @@ air4.flights << f4
 
 
 puts "Created #{ Flight.all.length } flights."
+
+Reservation.destroy_all
+r1 = Reservation.create
+r2 = Reservation.create
+r3 = Reservation.create
+r4 = Reservation.create
+
+f1.reservations << r1
+f2.reservations << r2
+f3.reservations << r3
+f5.reservations << r4
+
+u1.reservations << r1
+u2.reservations << r2
+u1.reservations << r3
+u2.reservations << r4
+
+
+puts "Created #{ Reservation.all.length } reservations."
