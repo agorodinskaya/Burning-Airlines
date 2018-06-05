@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  get "/airplanes" => "airplanes#index"
+
+  resources :airplanes
+
+  resources :flights
+
 end
