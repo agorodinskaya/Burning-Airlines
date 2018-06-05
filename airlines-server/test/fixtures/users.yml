@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyText
+  username: MyText
+  password_digest: MyText
+  user_type: 1
+
+two:
+  email: MyText
+  username: MyText
+  password_digest: MyText
+  user_type: 1
