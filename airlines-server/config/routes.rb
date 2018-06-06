@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete "/login" => "session#destroy"
 
   resources :users
+  get "/profile" => "users#profile"
 
   resources :flights
   resources :airplanes
