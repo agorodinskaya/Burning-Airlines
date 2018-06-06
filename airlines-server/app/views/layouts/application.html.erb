@@ -10,6 +10,45 @@
   </head>
 
   <body>
+
+    <nav class="login">
+      <% if @current_user.present? %>
+      Welcome, <%= @current_user.username %>
+
+      <ul class="nav justify-content-left">
+      <li class="nav-item">
+      <%= link_to 'Logout', login_path, method: :delete, class:"nav-link active" %>
+    </li>
+
+
+
+
+      <% else %>
+      <ul class="nav justify-content-left">
+      <li class="nav-item">
+      <%= link_to 'Login', login_path, class:"nav-link active" %>
+    </li>
+
+    <ul class="nav justify-content-left">
+    <li class="nav-item">
+      <%= link_to 'Sign up', new_user_path, class:"nav-link active" %>
+    </li>
+      <% end %>
+
+    </nav>
+    <ul class="nav justify-content-left">
+      <li class="nav-item">
+        <%= link_to 'Home', root_path, class:"nav-link active" %>
+        </li>
+
+        <li class="nav-item">
+        <%= link_to 'Airplane', airplanes_path( @airplane ), class:"nav-link active" %>
+      </li>
+
+
+      </ul>
+    </nav>
     <%= yield %>
   </body>
+
 </html>

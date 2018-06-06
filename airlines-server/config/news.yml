@@ -1,0 +1,12 @@
+development:
+  api_key: Rails.application.secrets.news_api_key
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  api_key: Rails.application.secrets.news_api_key
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  api_key: Rails.application.secrets.news_api_key
+  enhance_image_tag: true
+  static_image_support: false
