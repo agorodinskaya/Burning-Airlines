@@ -1,18 +1,14 @@
 <h1>All flights</h1>
 <div>
+    <% @flights.each do |flight| %>
     <ul>
-        <%= @flights.each do |flight| %>
-        <li>
-            <%= flight.airplane_name %> trip information:
-            <br/>
-            Origin: <%= flight.origin %>
-            <br/>
-            Destination: <%= flight.destination %>
-            <br/>
-            Departure: <%= flight.date %>
-            <br/>
-            <%= link_to 'Detailed flight information', flight_path %>
-        </li>
+        <li> Flight name: <%= flight.flight_name  %></li>
+        <%= link_to 'View flight details', flight_path( flight ) %>
+        <br/>
+        <%= link_to 'Edit', edit_flight_path( flight ) %>
+        <br/>
+        <%= link_to 'Destroy', flight_path( flight ), :method => 'delete' %>
     </ul>
+    <% end %>
     <%= link_to 'Add a new flight', new_flight_path %>
 </div>
