@@ -4,9 +4,9 @@ class FlightsController < ApplicationController
     @flight = Flight.new
   end
   
-def react
-    render json: Flight.all  
-end
+  def react
+      render json: Flight.all, include: [ :airplane, {:reservations => { :only => [:user_id, :seat_row, :seat_column] }} ]
+  end
 
   def create
     new_flight = Flight.create( flight_params )
