@@ -11,26 +11,10 @@ puts "Created #{ User.all.length} users."
 
 Airplane.destroy_all
 
-air1 = Airplane.create airplane_name: "747-NE", airline_company: 'Virgin Airlines', row: 50, column: 8
-air2 = Airplane.create airplane_name: "777-VU", airline_company: 'Virgin Airlines', row: 55, column: 8
-air3 = Airplane.create airplane_name: "747-NQ", airline_company: 'Qantas', row: 50, column: 8
-air4 = Airplane.create airplane_name: "777-VZ", airline_company: 'Qantas', row: 55, column: 8
-
-# Flight.destroy_all
-
-# f1 = Flight.create airplane_name: "747-NE", reservation_id: , datetime: "2010-10-10 08:30:30", origin: "SYD", destination: "PER"
-# f2 = Flight.create airplane_name: "747-NE", reservation_id: , datetime: "2010-10-11 22:15:15", origin: "PER", destination: "SYD"
-# f3 = Flight.create airplane_name: "777-VU", reservation_id: , datetime: "2010-05-06 11:20:10", origin: "SYD", destination: "MEL"
-# f4 = Flight.create airplane_name: "777-VU", reservation_id: , datetime: "2010-05-07 15:45:05", origin: "MEL", destination: "SYD"
-# f5 = Flight.create airplane_name: "747-NQ", reservation_id: , datetime: "2010-10-12 02:00:25", origin: "MEL", destination: "AKL"
-# f6 = Flight.create airplane_name: "747-NQ", reservation_id: , datetime: "2010-10-13 07:35:20", origin: "AKL", destination: "MEL"
-# f7 = Flight.create airplane_name: "777-VZ", reservation_id: , datetime: "2011-01-03 18:51:20", origin: "AKL", destination: "SYD"
-# f8 = Flight.create airplane_name: "777-VZ", reservation_id: , datetime: "2011-01-04 16:21:40", origin: "SYD", destination: "AKL"
-
-# air1 << f1 << f2
-# air2 << f3 << f4
-# air3 << f5 << f6
-# air4 << f7 << f8
+air1 = Airplane.create airplane_name: "Boeing 737", airline_company: 'Virgin Airlines', row: 50, column: 8
+air2 = Airplane.create airplane_name: "Airbus A320", airline_company: 'Virgin Airlines', row: 55, column: 8
+air3 = Airplane.create airplane_name: "Boeing 737", airline_company: 'Qantas', row: 50, column: 8
+air4 = Airplane.create airplane_name: "Airbus A320", airline_company: 'Qantas', row: 55, column: 8
 
 
 puts "Created #{ Airplane.all.length } airplanes."
