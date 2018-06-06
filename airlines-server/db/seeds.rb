@@ -11,10 +11,10 @@ puts "Created #{ User.all.length} users."
 
 Airplane.destroy_all
 
-air1 = Airplane.create airplane_name: "747-NE", airline_company: 'Virgin Airlines', row: 50, column: 8
-air2 = Airplane.create airplane_name: "777-VU", airline_company: 'Virgin Airlines', row: 55, column: 8
-air3 = Airplane.create airplane_name: "747-NQ", airline_company: 'Qantas', row: 50, column: 8
-air4 = Airplane.create airplane_name: "777-VZ", airline_company: 'Qantas', row: 55, column: 8
+air1 = Airplane.create airplane_name: "Boeing 737", airline_company: 'Virgin Airlines', row: 50, column: 8
+air2 = Airplane.create airplane_name: "A320", airline_company: 'Virgin Airlines', row: 55, column: 8
+air3 = Airplane.create airplane_name: "Boeing 737", airline_company: 'Qantas', row: 50, column: 8
+air4 = Airplane.create airplane_name: "A320", airline_company: 'Qantas', row: 55, column: 8
 
 # Flight.destroy_all
 
