@@ -35,7 +35,7 @@ air4.flights << f4
 puts "Created #{ Flight.all.length } flights."
 
 Reservation.destroy_all
-r1 = Reservation.create
+r1 = Reservation.create 
 r2 = Reservation.create
 r3 = Reservation.create
 r4 = Reservation.create
