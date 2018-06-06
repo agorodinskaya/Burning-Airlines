@@ -1,9 +1,14 @@
 class ReservationsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def new
+    render json: Reservation.all
   end
 
   def create
+    reservation = Reservation.create content: params['content']
+    render json: {reservation: reservation, created: true,}, status: :ok
   end
+
 
   def index
   end
