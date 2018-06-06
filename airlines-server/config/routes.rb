@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root to: "pages#home"
-  get "/airplanes" => "airplanes#index"
+  
+  # get "/airplanes" => "airplanes#index"
 
+  
   get "/login" => "session#new"
   post "/login" => "session#create"
   delete "/login" => "session#destroy"

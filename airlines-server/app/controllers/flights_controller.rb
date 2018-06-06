@@ -25,6 +25,7 @@ class FlightsController < ApplicationController
   end
 
   def update
+    @flight = Flight.find( params[:id] )
     @flight.update( flight_params )
     redirect_to flights_path
   end
@@ -37,7 +38,7 @@ class FlightsController < ApplicationController
 
   private
   def flight_params
-    params.require(:flight).permit(:airplane_name, :airline_company, :row, :column)
+    params.require(:flight).permit(:flight_name, :date, :origin, :destination, :airplane_id)
   end
 
 end

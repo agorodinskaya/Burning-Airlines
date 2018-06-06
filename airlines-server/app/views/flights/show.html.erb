@@ -1,9 +1,9 @@
 <h1>Detailed flight information</h1>
 <br/>
 <ul>
-    <li>Plane type: <%= @flight.airplane_name %></li>
+    <li>Plane model: <%= @flight.airplane.airplane_name %></li>
     <br/>
-    <li>Carrier: ADD</li>
+    <li>Carrier: <%= @flight.airplane.airline_company %></li>
     <br/>
     <li>Origin: <%= @flight.origin %></li>
     <br/>

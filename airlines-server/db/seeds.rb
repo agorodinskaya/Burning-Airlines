@@ -20,11 +20,11 @@ air4 = Airplane.create airplane_name: "Airbus A320", airline_company: 'Qantas', 
 puts "Created #{ Airplane.all.length } airplanes."
 
 Flight.destroy_all
-f1 = Flight.create date: "2010-10-10 08:30:30", origin: "SYD", destination: "PER"
-f2 = Flight.create date: "2010-05-06 11:20:10", origin: "SYD", destination: "MEL"
-f3 = Flight.create date: "2010-10-12 02:00:25", origin: "MEL", destination: "AKL"
-f4 = Flight.create date: "2011-01-03 18:51:20", origin: "AKL", destination: "SYD"
-f5 = Flight.create date: "2010-12-12 08:30:30", origin: "SYD", destination: "PER"
+f1 = Flight.create flight_name: "VA-737", date: "2010-10-10 08:30:30", origin: "SYD", destination: "PER"
+f2 = Flight.create flight_name: "VA-320", date: "2010-05-06 11:20:10", origin: "SYD", destination: "MEL"
+f3 = Flight.create flight_name: "QA-737", date: "2010-10-12 02:00:25", origin: "MEL", destination: "AKL"
+f4 = Flight.create flight_name: "QA-320", date: "2011-01-03 18:51:20", origin: "AKL", destination: "SYD"
+f5 = Flight.create flight_name: "VA-737", date: "2010-12-12 08:30:30", origin: "SYD", destination: "PER"
 
 air1.flights << f1 << f5
 air2.flights << f2

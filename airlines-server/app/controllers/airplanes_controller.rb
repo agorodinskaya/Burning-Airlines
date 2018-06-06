@@ -16,7 +16,6 @@ class AirplanesController < ApplicationController
   
   def show
     @airplane = Airplane.find( params[:id] )
-    array_of_flights = @airplane.flights
   end
 
   def edit
@@ -24,6 +23,7 @@ class AirplanesController < ApplicationController
   end
 
   def update
+    @airplane = Airplane.find( params[:id] )
     @airplane.update( airplane_params )
     redirect_to airplanes_path
   end

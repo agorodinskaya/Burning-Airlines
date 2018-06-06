@@ -1,13 +1,15 @@
 <h1>Index of airplanes</h1>
 <div>
     <ul>
-        <% @airplanes.each do |airplane| %>
+    <% @airplanes.each do |airplane| %>
         <li>
             <%= airplane.airline_company %>: <%= airplane.airplane_name %>
             <br/>
-            <%= link_to 'View plane information', airplane_path( airplane ) %>
-            <%= link_to 'Edit airplane', edit_airplane_path( airplane ) %>
-            <%= link_to 'Destroy airplane', airplane_path( airplane ), :method => 'delete' %>
+            <%= link_to 'View details', airplane_path( airplane ) %>
+            <br/>
+            <%= link_to 'Edit', edit_airplane_path( airplane ) %>
+            <br/>            
+            <%= link_to 'Destroy', airplane_path( airplane ), :method => 'delete' %>
             <br/>
         </li>
         <% end %>
