@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   
   # get "/airplanes" => "airplanes#index"
 
-  get "/react" => "flights#react"
+  get "/react/search" => "flights#react"
+  get "/react/reservation" => "reservations#react"
   
   get "/login" => "session#new"
   post "/login" => "session#create"
