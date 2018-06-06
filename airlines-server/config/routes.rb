@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/react/search" => "flights#react"
   get "/react/reservation" => "reservations#react"
   
+  
   get "/login" => "session#new"
   post "/login" => "session#create"
   delete "/login" => "session#destroy"

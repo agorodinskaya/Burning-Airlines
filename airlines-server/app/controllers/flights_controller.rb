@@ -5,7 +5,7 @@ class FlightsController < ApplicationController
   end
   
 def react
-    render json: Flight.all  
+    render json: Flight.all
 end
 
   def create
@@ -21,7 +21,7 @@ end
   def show
     @flight = Flight.find( params[:id] )
     passenger_list = []
-    # active record methods to find users of reservations of this flight, push to array
+    
   end
 
   def edit
