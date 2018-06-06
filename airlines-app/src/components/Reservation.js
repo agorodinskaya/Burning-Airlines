@@ -9,7 +9,7 @@ class Reservations extends Component{
   constructor() {
     super()
     this.state = {
-      reservations: []
+      
     }
     // this.saveSecret = this.saveSecret.bind(this)
   }
@@ -29,14 +29,14 @@ class Reservations extends Component{
     fetchReservations();
     setInterval(fetchReservations, 1000);
   }
-    saveReservation(reservation){
-      console.log('Reservation::SaveReservation', reservation)
-      axios.post(SERVER_URL, { content: reservation })
-        .then(response => {
-          console.log('response:', response, response.data);
-          this.setState({ reservations: [response.data.reservation, ...this.state.reservations] });
-        });
-    }
+    // saveReservation(reservation){
+    //   console.log('Reservation::SaveReservation', reservation)
+    //   axios.post(SERVER_URL, { content: reservation })
+    //     .then(response => {
+    //       console.log('response:', response, response.data);
+    //       this.setState({ reservations: [response.data.reservation, ...this.state.reservations] });
+    //     });
+    // }
   
   render(){
     return(
