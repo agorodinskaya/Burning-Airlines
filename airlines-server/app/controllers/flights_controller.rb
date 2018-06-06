@@ -3,10 +3,10 @@ class FlightsController < ApplicationController
   def new
     @flight = Flight.new
   end
-  
-def react
-    render json: Flight.all
-end
+
+  def react
+      render json: Flight.all, include: [ :airplane, {:reservations => { :only => [:user_id, :seat_row, :seat_column] }} ]
+  end
 
   def create
     new_flight = Flight.create( flight_params )
@@ -17,15 +17,15 @@ end
   def index
     @flights = Flight.all
   end
-  
+
   def show
     @flight = Flight.find( params[:id] )
     passenger_list = []
-    
+
   end
 
   def edit
-    @flight = Flight.find( params[:id] )    
+    @flight = Flight.find( params[:id] )
   end
 
   def update
