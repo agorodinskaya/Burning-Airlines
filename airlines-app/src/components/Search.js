@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 
 
-const SERVER_URL = 'http://localhost:3000/flights.json';
+const SERVER_URL = 'http://localhost:3000/react/search.json';
 
 class Search extends Component {
     constructor(){
         super();
 
+        this.state = {
 
+        }
     }
 
     render(){
