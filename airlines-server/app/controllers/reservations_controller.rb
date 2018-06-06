@@ -1,7 +1,6 @@
 class ReservationsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def new
-    render json: Reservation.all
   end
 
   def create
@@ -9,6 +8,9 @@ class ReservationsController < ApplicationController
     render json: {reservation: reservation, created: true,}, status: :ok
   end
 
+  def react
+  render json: Reservation.all
+  end
 
   def index
   end
