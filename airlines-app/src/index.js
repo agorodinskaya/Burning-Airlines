@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Search from './components/Search';
 import registerServiceWorker from './registerServiceWorker';
+import Routes from './Routes';
 
-ReactDOM.render(<Search />, document.getElementById('root'));
+ReactDOM.render(Routes, document.getElementById('root'));
 registerServiceWorker();
