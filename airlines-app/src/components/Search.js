@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import { Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import '../App.css';
 
@@ -20,7 +21,9 @@ class Result extends Component {
                 <div>
                     {
                         this.props.searchResults.map( e => 
-                        <li key={e.id}>{` ${e.flight_name} seats remaining: ${(e.airplane.row * e.airplane.column) - e.reservations.length} `}</li>
+                        <li key={e.id}>
+                        {` ${e.flight_name} seats remaining: ${(e.airplane.row * e.airplane.column) - e.reservations.length} `} <Link to ="/reservation"> Check flight </Link>
+                        </li>
                      )
                     }
                 </div>
