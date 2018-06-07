@@ -11,7 +11,15 @@ const SERVER_URL = 'http://localhost:3000/react/search.json';
 class Result extends Component {
     constructor(props){
         super(props);
+        
 
+    }
+
+    
+    gotoReservation(event, id) {
+        console.log("this id:",id);
+        this.props.history.push(`/reservation/${id}`)
+        // this.props.match.params.id
     }
 
     render(){
@@ -22,7 +30,9 @@ class Result extends Component {
                     {
                         this.props.searchResults.map( e => 
                         <li key={e.id}>
-                        {` ${e.flight_name} seats remaining: ${(e.airplane.row * e.airplane.column) - e.reservations.length} `} <Link to ="/reservation"> Check flight </Link>
+                                    {` ${e.flight_name} seats remaining: ${(e.airplane.row * e.airplane.column) - e.reservations.length} `} 
+                                    {/* <Link to ="/reservation"> Check flight </Link> */}
+                                <a onClick={(event) => this.gotoReservation(event, e.id)}>Click to book</a>
                         </li>
                      )
                     }
@@ -31,6 +41,7 @@ class Result extends Component {
         )
     }
 }
+
 
 
 class Search extends Component {
