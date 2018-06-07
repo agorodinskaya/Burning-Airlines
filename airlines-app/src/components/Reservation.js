@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 
 
-const SERVER_URL_RESERVATIONS = 'http://localhost:3000/react/reservation.json';
+// const SERVER_URL_RESERVATIONS = 'http://localhost:3000/react/reservation.json';
 
 
 
@@ -12,8 +12,8 @@ class Flight extends Component{
   constructor(props){
     super(props);
     this.state={
+      flightjson:{},
       sittingPlan:[],
-      flightjson:{}
     }
   }
 
@@ -31,9 +31,7 @@ class Flight extends Component{
       processedURL[i] = parseInt(processedURL[i]);
       processedURL[i] = String.fromCharCode(processedURL[i]);
       jsonIncomingString += processedURL[i];
-      
     }
-
     // console.log('string:',jsonIncomingString);
     // console.log(jsonIncomingString.split("")[445])
     let remadeJson = JSON.parse(jsonIncomingString);
@@ -41,13 +39,13 @@ class Flight extends Component{
     this.setState({
       flightjson: remadeJson
     });
-    console.log( this.state.flightjson );
+    console.log( 'this.state:', this.state.flightjson );
      
-}
+  }
   containerFunction =() => {
     let columnLetters = [];
-    let testObject = this.state.flightjson.airplane;
-    console.log(testObject);
+    let testObject = this.state;
+    console.log('what is happening', testObject);
     // let columnNumber = this.state.flightjson.airplane.column;
 
     // for (let i = 0; i < columnNumber; i++) {
@@ -63,7 +61,7 @@ class Flight extends Component{
     this.containerFunction();
     return (
       <div>
-
+        <h1>Hello</h1>
       </div>
     );
   }
@@ -88,14 +86,14 @@ class Row extends Component{
     }
     
   
-    saveReservation(reservation){
-      console.log('Reservation::SaveReservation', reservation)
-      axios.post(SERVER_URL_RESERVATIONS, { content: reservation })
-        .then(response => {
-          console.log('response:', response, response.data);
-          this.setState({ reservations: [response.data.reservation, ...this.state.reservations] });
-        });
-    }
+    // saveReservation(reservation){
+    //   console.log('Reservation::SaveReservation', reservation)
+    //   axios.post(SERVER_URL_RESERVATIONS, { content: reservation })
+    //     .then(response => {
+    //       console.log('response:', response, response.data);
+    //       this.setState({ reservations: [response.data.reservation, ...this.state.reservations] });
+    //     });
+    // }
   
   render(){
     return(

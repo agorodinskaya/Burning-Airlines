@@ -62,8 +62,8 @@ class Search extends Component {
     }
 
     componentDidMount(){
-        console.log('inside mount');
-        console.log(this.state)
+        // console.log('inside mount');
+        // console.log(this.state)
     }
 
     linkToRes = (ev, resIndex) => {
@@ -75,7 +75,7 @@ class Search extends Component {
         // console.log( 'length of searchResults array', this.props.searchResults.length );
         resultsWeWant = this.state.preparedURL.slice(this.state.preparedURL.length - this.state.matches.length);
         // console.log('sliced array', resultsWeWant);
-        // console.log('url to send to res page:', resultsWeWant[resIndex]);
+        console.log('url to send to res page:', resultsWeWant[resIndex]);
         this.props.history.push(`/reservation/${resultsWeWant[resIndex]}`)
     }
 
