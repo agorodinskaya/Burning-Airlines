@@ -121,6 +121,7 @@ class Search extends Component {
                         <input type="submit" value="Search"/>
                     </form>
                 </div>
+                <div>test</div>
                 total flight count:
                 {
                     this.state.results.length
