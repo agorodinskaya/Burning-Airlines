@@ -13,10 +13,11 @@ class Flight extends Component{
     super(props);
     this.state={
       sittingPlan:[],
+      flightjson:{}
     }
   }
 
-  componentDidMount(){
+  componentDidMount = () => {
     // console.log('test params:', this.props.match.params.id );
     let unprocessedURL = this.props.match.params.id;
     let processingURL, processedURL, jsonIncomingString;
@@ -24,6 +25,7 @@ class Flight extends Component{
       return unprocessedURL.split(".")
     }
     processedURL = processingURL(unprocessedURL);
+    processedURL.pop();
     jsonIncomingString = "";
     for (let i=0; i<processedURL.length; i++){
       processedURL[i] = parseInt(processedURL[i]);
@@ -31,31 +33,38 @@ class Flight extends Component{
       jsonIncomingString += processedURL[i];
       
     }
-    console.log(jsonIncomingString);
-    
-    
-  //   const generatePlan=()=>{
-  //   let col = [0,1,2,3,4,5,6,7];
-  //   let row = [];
 
-  //   for(let i = 0; i < col.length; i++){
-  //     this.state.sittingPlan.slice().push[i]=[];
-  //     for(let j = 0; j< row.length; j++){
-  //      this.state.sittingPlan[i][j] = "empty seat"
-  //     }
-        
-  //   }
-  // }
-  // generatePlan();
-  
+    // console.log('string:',jsonIncomingString);
+    // console.log(jsonIncomingString.split("")[445])
+    let remadeJson = JSON.parse(jsonIncomingString);
+    console.log(remadeJson);
+    this.setState({
+      flightjson: remadeJson
+    });
+    console.log( this.state.flightjson );
+     
 }
+  containerFunction =() => {
+    let columnLetters = [];
+    let testObject = this.state.flightjson.airplane;
+    console.log(testObject);
+    // let columnNumber = this.state.flightjson.airplane.column;
+
+    // for (let i = 0; i < columnNumber; i++) {
+    //   columnLetters.push(String.fromCharCode(i + 65));
+    // }
+    
+  }
   //1 process incoming JSON -> ok
   //2 find flight planes row and column inside JSON to make a sitting plan
   //3 nested loops create empty null elements to rep empty seats
   //4 check the JSON for occupied seats 
   render() {
+    this.containerFunction();
     return (
-      <Column/>
+      <div>
+
+      </div>
     );
   }
     
