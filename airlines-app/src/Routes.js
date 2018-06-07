@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom'; // can replace Browserrouter with Hashrouter. TODO - read
+import {HashRouter as Router, Route} from 'react-router-dom';
 import Search from './components/Search';
 import Reservation from './components/Reservation';
 
