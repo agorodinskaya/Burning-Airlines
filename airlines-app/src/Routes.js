@@ -13,7 +13,7 @@ const Routes = (
 
             <Route exact path="/search"    component= {Search}/>
             <Route exact path="/reservation" component= {Reservation}/>
-
+            
 
             {/* <Route component={Error404}/> */}
 
