@@ -77,7 +77,7 @@ class Search extends Component {
 
     prepareThisShit = ( jsonStringAsArray ) => {
         let asciied ="";
-        jsonStringAsArray.map( char => asciied+= char.charCodeAt(0) + "?" );
+        jsonStringAsArray.map( char => asciied+= char.charCodeAt(0) + "." );
         // console.log(asciied); //=> returns ascii version of json flight string
         this.setState({ preparedURL: this.state.preparedURL.concat(asciied) });
     }
