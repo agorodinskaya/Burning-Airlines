@@ -1,0 +1,67 @@
+{
+    this.state.matches.map(eachMatch => <Result key={this.state.matches.indexOf(eachMatch)} value={this.state.matches.indexOf(eachMatch)} onClick={ (a,b) => this.linkToRes(a,b) } /> )
+}
+
+{/* <Result onClick={ (a) => this.linkToRes(a) } searchResults={ this.state.matches } encodedJSON={ this.state.preparedURL } /> */}
+    {/* {
+    this.props.searchResults.map(item =>
+        <li key={item.id}>
+            {`FLIGHT: ${item.flight_name}, INDEX: ${this.props.searchResults.indexOf(item)}, SEATS REMAINING: ${(item.airplane.row * item.airplane.column) - item.reservations.length} `}
+            <button onClick={(event) => this.props.onClick(event, this.props.searchResults.indexOf(item))}>BOOK NOW</button>
+        </li>
+    )
+} */}
+
+abstract-xhr.js:132 XHR finished loading: GET "http://localhost:3001/sockjs-node/info?t=1528364730423".
+./node_modules/sockjs-client/lib/transport/browser/abstract-xhr.js.AbstractXHRObject._start @ abstract-xhr.js:132
+(anonymous) @ abstract-xhr.js:21
+setTimeout (async)
+AbstractXHRObject @ abstract-xhr.js:20
+XHRLocalObject @ xhr-local.js:8
+InfoAjax @ info-ajax.js:19
+./node_modules/sockjs-client/lib/info-receiver.js.InfoReceiver._getReceiver @ info-receiver.js:36
+./node_modules/sockjs-client/lib/info-receiver.js.InfoReceiver.doXhr @ info-receiver.js:56
+(anonymous) @ info-receiver.js:25
+setTimeout (async)
+InfoReceiver @ info-receiver.js:24
+SockJS @ main.js:121
+./node_modules/react-dev-utils/webpackHotDevClient.js @ webpackHotDevClient.js:61
+__webpack_require__ @ bootstrap 9b2eb48c2891b557ef39:678
+fn @ bootstrap 9b2eb48c2891b557ef39:88
+0 @ registerServiceWorker.js:117
+__webpack_require__ @ bootstrap 9b2eb48c2891b557ef39:678
+./node_modules/ansi-regex/index.js.module.exports @ bootstrap 9b2eb48c2891b557ef39:724
+(anonymous) @ bootstrap 9b2eb48c2891b557ef39:724
+Search.js:98 (2) [{…}, {…}]
+xhr.js:178 XHR finished loading: GET "http://localhost:3000/react/search.json".
+dispatchXhrRequest @ xhr.js:178
+xhrAdapter @ xhr.js:12
+dispatchRequest @ dispatchRequest.js:59
+Promise.then (async)
+request @ Axios.js:51
+Axios.(anonymous function) @ Axios.js:61
+wrap @ bind.js:9
+Search._this3.fetchFlights @ Search.js:104
+Search._this3.submitHandler @ Search.js:114
+callCallback @ react-dom.development.js:100
+invokeGuardedCallbackDev @ react-dom.development.js:138
+invokeGuardedCallback @ react-dom.development.js:187
+invokeGuardedCallbackAndCatchFirstError @ react-dom.development.js:201
+executeDispatch @ react-dom.development.js:461
+executeDispatchesInOrder @ react-dom.development.js:483
+executeDispatchesAndRelease @ react-dom.development.js:581
+executeDispatchesAndReleaseTopLevel @ react-dom.development.js:592
+forEachAccumulated @ react-dom.development.js:562
+runEventsInBatch @ react-dom.development.js:723
+runExtractedEventsInBatch @ react-dom.development.js:732
+handleTopLevel @ react-dom.development.js:4472
+batchedUpdates$1 @ react-dom.development.js:16537
+batchedUpdates @ react-dom.development.js:2131
+dispatchEvent @ react-dom.development.js:4551
+interactiveUpdates$1 @ react-dom.development.js:16592
+interactiveUpdates @ react-dom.development.js:2150
+dispatchInteractiveEvent @ react-dom.development.js:4528
+Search.js:65 child clicked
+Search.js:66 reservation index: undefined
+Search.js:72 sliced array (2) ["123%34%105%100%34%58%49%56%44%34%100%97%116%101%34…16%95%99%111%108%117%109%110%34%58%52%125%93%125%", "123%34%105%100%34%58%49%57%44%34%100%97%116%101%34…16%95%99%111%108%117%109%110%34%58%56%125%93%125%"]
+Search.js:73

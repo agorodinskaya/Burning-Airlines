@@ -11,24 +11,32 @@ const SERVER_URL = 'http://localhost:3000/react/search.json';
 class Result extends Component {
     constructor(props){
         super(props);
-        
-
     }
 
+    // <Result searchResults={this.state.matches} encodedJSON={this.state.preparedURL} />
+    // { (ev) => this.linkToRes(ev, this.props.searchResults.indexOf(item)) }
+    
 
     render(){
         return(
             <div>
-                <h2>Matching flights</h2>
                 <div>
-                    {
-                        this.props.searchResults.map( e => 
-                        <li key={e.id}>
-                                    {` ${e.flight_name} seats remaining: ${(e.airplane.row * e.airplane.column) - e.reservations.length} `} 
-                                    <Link to ="/reservation"> Check flight </Link>
-                        </li>
-                     )
-                    }
+                    {/* ADD STUFF HERE REFERENCE TO CLICK HANDLER TO UPDATE STATE */}
+                    {/* SHOULD DISPLAY FLIGHT NAME, SEATS REMAINING */}
+                    {/* BUTTON TO BOOKING PAGE WITH JSON URLz */}
+                    <div>
+                        {`Flight name: ${this.props.flightInfo.flight_name}`}
+                    </div>
+                    <div>
+                        {`Date: ${this.props.flightInfo.date}`}
+                    </div>
+                    <div>
+                        {`Available seats: ${this.props.flightInfo.airplane.row * this.props.flightInfo.airplane.column - this.props.flightInfo.reservations.length}`}
+                    </div>
+                    <button onClick={ (e)=> this.props.onClick(e) }>
+                        Book this flight!
+                    </button>
+                    <hr/>
                 </div>
             </div>
         )
@@ -43,19 +51,34 @@ class Search extends Component {
 
         this.state = {
             origin_query: 'SYD',
-            destination_query: 'MEL',
-            results: [],
-            matches: [],
-            preparedURL: [],
+            destination_query: 'PER',
+            results: [], // flight object
+            matches: [], // flight object
+            preparedURL: [], // ascii
+            currentIndex: 0,
         }
 
-        this.prepareThisShit = this.prepareThisShit.bind(this);
+        // this.prepareThisShit = this.prepareThisShit.bind(this);
     }
+
+    linkToRes = (ev, resIndex) => {
+        console.log( 'child clicked' );
+        console.log('reservation index:', resIndex);
+        ev.preventDefault();
+        let resultsWeWant;
+        // console.log( 'need to slice this array', this.props.encodedJSON.length );
+        // console.log( 'length of searchResults array', this.props.searchResults.length );
+        resultsWeWant = this.state.preparedURL.slice(this.state.preparedURL.length - this.state.matches.length);
+        // console.log('sliced array', resultsWeWant);
+        // console.log('url to send to res page:', resultsWeWant[resIndex]);
+        this.props.history.push(`/reservation/${resultsWeWant[resIndex]}`)
+    }
+
 
     prepareThisShit = ( jsonStringAsArray ) => {
         let asciied ="";
-        jsonStringAsArray.map( char => asciied+= char.charCodeAt(0) + "%" );
-        console.log(asciied);
+        jsonStringAsArray.map( char => asciied+= char.charCodeAt(0) + "?" );
+        // console.log(asciied); //=> returns ascii version of json flight string
         this.setState({ preparedURL: this.state.preparedURL.concat(asciied) });
     }
 
@@ -63,7 +86,7 @@ class Search extends Component {
         let stringed, unpreparedURL, preparingURL;
         unpreparedURL = [];
         stringed = tmp.map( fl => unpreparedURL.push(JSON.stringify(fl)))
-        console.log( unpreparedURL );
+        // console.log( unpreparedURL ); //=> returns json flight as string
         preparingURL = unpreparedURL.map( jo => {
             this.prepareThisShit( jo.split("") );
         } )
@@ -72,7 +95,7 @@ class Search extends Component {
     findMatches = ( a,b,c ) => {
         let tmp;
         tmp = a.slice().filter( flight => flight.origin === b  && flight.destination === c );
-        console.log( tmp );
+        console.log( tmp ); //=> returns array of each matching flight object
         this.setState({ matches: tmp });
         this.formatter( tmp );
     }
@@ -80,23 +103,23 @@ class Search extends Component {
     fetchFlights = () => {
         axios.get(SERVER_URL).then( response => {
             this.setState({ results: response.data }) // removed once findMatches populates state
-            console.log( response.data );
+            // console.log( response.data ); //=> returns array of each flight object
             this.findMatches( response.data, this.state.origin_query, this.state.destination_query );
         } );
     }
     
     submitHandler = ( e ) => {
         e.preventDefault();
-        console.log( 'Origin: ', this.state.origin_query, 'Destination: ', this.state.destination_query );
+        // console.log( 'Origin: ', this.state.origin_query, 'Destination: ', this.state.destination_query ); //=> returns origin/destination
         this.fetchFlights();
     }
 
     originChangeHandler = ( e ) => {
-        console.log( this.state.origin_query );
+        // console.log( this.state.origin_query );
         this.setState({ origin_query: e.target.value });
     }
     destinationChangeHandler = ( e ) => {
-        console.log( this.state.destination_query );
+        // console.log( this.state.destination_query );
         this.setState({ destination_query: e.target.value });
     }
 
@@ -125,32 +148,11 @@ class Search extends Component {
                         <input type="submit" value="Search"/>
                     </form>
                 </div>
-                <div>test</div>
-                total flight count:
-                {
-                    this.state.results.length
-                }
+                <h2>{ this.state.matches.length ? "Matching flights" : "Waiting to search" }</h2>
                 <br/>
-                the type of object inside this.state.preparedURL:
                 {
-                    typeof this.state.preparedURL === 'string' ? "string" : "not string"
+                    this.state.matches.map(eachMatch => <Result key={this.state.matches.indexOf(eachMatch)} flightInfo={this.state.matches[this.state.matches.indexOf(eachMatch)]} onClick={(a) => this.linkToRes(a, this.state.matches.indexOf(eachMatch)) } /> )
                 }
-                <br/>
-                does number of matches equal number of prepared urls:
-                {
-                    this.state.matches.length === this.state.preparedURL.length ? 'true' : 'false'
-                }
-                <br/>
-                number of matches:
-                {
-                    this.state.matches.length
-                }
-                <br/>
-                number of preparedURLS:
-                {
-                    this.state.preparedURL.length
-                }
-                <Result searchResults={ this.state.matches } />
             </div>
         )
     }
