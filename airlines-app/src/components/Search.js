@@ -61,6 +61,11 @@ class Search extends Component {
         // this.prepareThisShit = this.prepareThisShit.bind(this);
     }
 
+    componentDidMount(){
+        console.log('inside mount');
+        console.log(this.state)
+    }
+
     linkToRes = (ev, resIndex) => {
         console.log( 'child clicked' );
         console.log('reservation index:', resIndex);
