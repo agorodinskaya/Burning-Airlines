@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter as Router, Route} from 'react-router-dom'; // can replace Browserrouter with Hashrouter. TODO - read
+import {HashRouter as Router, Route} from 'react-router-dom';
 import Search from './components/Search';
 import Reservation from './components/Reservation';
 
@@ -13,8 +13,7 @@ const Routes = (
 
             <Route exact path="/search"    component= {Search}/>
             <Route exact path="/reservation" component= {Reservation}/>
-            <Route exact path="/reservation/:id" render={(props)=>{<Reservation id={props.match.params.id}/>}}/>
-
+            
 
             {/* <Route component={Error404}/> */}
 
