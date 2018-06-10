@@ -14,11 +14,15 @@ class Flight extends Component{
     this.state={
       flightjson:{},
       sittingPlan:[],
+      rows: 0,
+      column: 0,
     }
+    // console.log('state:',flightjson);
+    
   }
 
   componentDidMount = () => {
-    // console.log('test params:', this.props.match.params.id );
+    console.log('test params:', this.props.match.params.id );
     let unprocessedURL = this.props.match.params.id;
     let processingURL, processedURL, jsonIncomingString;
     processingURL = (unprocessedURL)=>{
@@ -32,25 +36,27 @@ class Flight extends Component{
       processedURL[i] = String.fromCharCode(processedURL[i]);
       jsonIncomingString += processedURL[i];
     }
-    // console.log('string:',jsonIncomingString);
-    // console.log(jsonIncomingString.split("")[445])
+    console.log('string:',jsonIncomingString);
+    console.log(jsonIncomingString.split("")[445])
     let remadeJson = JSON.parse(jsonIncomingString);
     console.log(remadeJson);
     this.setState({
-      flightjson: remadeJson
+      flightjson: remadeJson,
+      rows: remadeJson.airplane.row,
+      column: remadeJson.airplane.column,
     });
     console.log( 'this.state:', this.state.flightjson );
      
   }
-  containerFunction =() => {
+  containerFunction = () => {
     let columnLetters = [];
     let testObject = this.state;
-    console.log('what is happening', testObject);
-    // let columnNumber = this.state.flightjson.airplane.column;
+    console.log('what is happening', testObject.flightjson.airplane);
+    let columnNumber = this.state.flightjson.column;
 
-    // for (let i = 0; i < columnNumber; i++) {
-    //   columnLetters.push(String.fromCharCode(i + 65));
-    // }
+    for (let i = 0; i < columnNumber; i++) {
+      columnLetters.push(String.fromCharCode(i + 65));
+    }
     
   }
   //1 process incoming JSON -> ok
